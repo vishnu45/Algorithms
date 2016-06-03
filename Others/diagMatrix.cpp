@@ -7,9 +7,7 @@ int main()
 {
 	int ROW = 3, COL = 4;
 	int a, b;
-	int array[ROW][COL] = {	{ 1, 2, 3, 4},
-							{ 5, 6, 7, 8},
-							{ 9, 10, 11, 12}};
+	int array[ROW][COL] = {	{ 1, 2, 3, 4},{ 5, 6, 7, 8},{ 9, 10, 11, 12}};
 
 	for (int i = 0; i < ROW; i++)
 	{
