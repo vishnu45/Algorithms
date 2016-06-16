@@ -3,8 +3,7 @@
 
 #include "linearSearch.h"
 
-SCENARIO ("Search for an item in an integer array using linear search", "[Linear Search][integer]"){
-	
+SCENARIO ("Search for an item in an integer array using linear search", "[Linear Search][integer]"){	
 // -----------------------------------------------------------------
 	GIVEN ("An integer array")
 	{
@@ -37,6 +36,9 @@ SCENARIO ("Search for an item in an integer array using linear search", "[Linear
 			}
 		}
 	}
+}
+
+SCENARIO ("Search for an item in a character array using linear search", "[Linear Search][character]"){
 // -----------------------------------------------------------------
 	GIVEN ("A character array")
 	{
@@ -46,9 +48,26 @@ SCENARIO ("Search for an item in an integer array using linear search", "[Linear
 			char data = 'a';
 			THEN ("the index of the character item must be returned back correctly")
 			{
+				REQUIRE (LinearSearch<char>::Search(charArray, 5, data) == 0);
+			}
+		}
+
+		WHEN ("we search for a character item present within the array")
+		{
+			char data = 'b';
+			THEN ("the index value retured back must not be -1")
+			{
 				REQUIRE (LinearSearch<char>::Search(charArray, 5, data) != -1);
+			}
+		}
+
+		WHEN ("we search for a character item not present within the array")
+		{
+			char data = 'z';
+			THEN("the index value returned must be -1")
+			{
+				REQUIRE (LinearSearch<char>::Search(charArray, 5, data) == -1);
 			}
 		}	
 	}
-
 }
