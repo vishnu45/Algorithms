@@ -4,7 +4,7 @@
 #include "linearSearch.h"
 
 SCENARIO ("Search for an item in an integer array using linear search", "[Linear Search][integer]"){	
-// -----------------------------------------------------------------
+// ------------------------------------------------------------------
 	GIVEN ("An integer array")
 	{
 		int intArray[] = {1, 2, 3, 4, 5};
@@ -39,7 +39,7 @@ SCENARIO ("Search for an item in an integer array using linear search", "[Linear
 }
 
 SCENARIO ("Search for an item in a character array using linear search", "[Linear Search][character]"){
-// -----------------------------------------------------------------
+// ------------------------------------------------------------------
 	GIVEN ("A character array")
 	{
 		char charArray[] = {'a', 'b', 'c', 'd', 'e'};
