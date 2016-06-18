@@ -1,0 +1,188 @@
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+test.exe is a Catch v1.5.6 host application.
+Run with -? for options
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in an integer array using linear search
+     Given: An integer array [1, 2, 3, 4, 5] 
+      When: we search for an integer item [3] present within the array
+      Then: the index of the integer item (2) must be returned back correctly
+-------------------------------------------------------------------------------
+testDriver.cpp:8
+...............................................................................
+
+testDriver.cpp:19: 
+PASSED:
+  REQUIRE( LinearSearch<int>::Search(intArray, 5, data) == 2 )
+with expansion:
+  2 == 2
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in an integer array using linear search
+     Given: An integer array [1, 2, 3, 4, 5] 
+      When: we search for an integer item [5] present within the array
+      Then: the index value retured back must not be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:8
+...............................................................................
+
+testDriver.cpp:28: 
+PASSED:
+  REQUIRE( LinearSearch<int>::Search(intArray, 5, data) != -1 )
+with expansion:
+  4 != -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in an integer array using linear search
+     Given: An integer array [1, 2, 3, 4, 5] 
+      When: we search for an interger item [6] not present within the array
+      Then: the index value returned must be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:8
+...............................................................................
+
+testDriver.cpp:37: 
+PASSED:
+  REQUIRE( LinearSearch<int>::Search(intArray, 5, data) == -1 )
+with expansion:
+  -1 == -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a character array using linear search
+     Given: A character array [a, b, c, d, e] 
+      When: we search for a character item 'a' present within the array
+      Then: the index of the character item (0) must be returned back correctly
+-------------------------------------------------------------------------------
+testDriver.cpp:44
+...............................................................................
+
+testDriver.cpp:54: 
+PASSED:
+  REQUIRE( LinearSearch<char>::Search(charArray, 5, data) == 0 )
+with expansion:
+  0 == 0
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a character array using linear search
+     Given: A character array [a, b, c, d, e] 
+      When: we search for a character item 'b' present within the array
+      Then: the index value retured back must not be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:44
+...............................................................................
+
+testDriver.cpp:63: 
+PASSED:
+  REQUIRE( LinearSearch<char>::Search(charArray, 5, data) != -1 )
+with expansion:
+  1 != -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a character array using linear search
+     Given: A character array [a, b, c, d, e] 
+      When: we search for a character item 'z' not present within the array
+      Then: the index value returned must be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:44
+...............................................................................
+
+testDriver.cpp:72: 
+PASSED:
+  REQUIRE( LinearSearch<char>::Search(charArray, 5, data) == -1 )
+with expansion:
+  -1 == -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a double array using linear search
+     Given: A double array [0.1, 0.2, 0.3, 0.4, 0.5] 
+      When: we search for a double item 0.4 present within the array
+      Then: the index of the double item must be returned back correctly
+-------------------------------------------------------------------------------
+testDriver.cpp:79
+...............................................................................
+
+testDriver.cpp:89: 
+PASSED:
+  REQUIRE( LinearSearch<double>::Search(doubleArray, 5, data) == 3 )
+with expansion:
+  3 == 3
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a double array using linear search
+     Given: A double array [0.1, 0.2, 0.3, 0.4, 0.5] 
+      When: we search for a double item 'b' present within the array
+      Then: the index value retured back must not be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:79
+...............................................................................
+
+testDriver.cpp:98: 
+PASSED:
+  REQUIRE( LinearSearch<double>::Search(doubleArray, 5, data) != -1 )
+with expansion:
+  0 != -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a double array using linear search
+     Given: A double array [0.1, 0.2, 0.3, 0.4, 0.5] 
+      When: we search for a double item 0.6 not present within the array
+      Then: the index value returned must be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:79
+...............................................................................
+
+testDriver.cpp:107: 
+PASSED:
+  REQUIRE( LinearSearch<double>::Search(doubleArray, 5, data) == -1 )
+with expansion:
+  -1 == -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a string array using linear search
+     Given: A string array ["My", "name", "is", "Vishnu", "Vidyan"] 
+      When: we search for a string item "Vishnu" present within the array
+      Then: the index of the string item must be returned back correctly
+-------------------------------------------------------------------------------
+testDriver.cpp:114
+...............................................................................
+
+testDriver.cpp:124: 
+PASSED:
+  REQUIRE( LinearSearch<string>::Search(stringArray, 5, data) == 3 )
+with expansion:
+  3 == 3
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a string array using linear search
+     Given: A string array ["My", "name", "is", "Vishnu", "Vidyan"] 
+      When: we search for a string item "My" present within the array
+      Then: the index value retured back must not be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:114
+...............................................................................
+
+testDriver.cpp:133: 
+PASSED:
+  REQUIRE( LinearSearch<string>::Search(stringArray, 5, data) != -1 )
+with expansion:
+  0 != -1
+
+-------------------------------------------------------------------------------
+Scenario: Search for an item in a string array using linear search
+     Given: A string array ["My", "name", "is", "Vishnu", "Vidyan"] 
+      When: we search for a string item "Hello" not present within the array
+      Then: the index value returned must be -1
+-------------------------------------------------------------------------------
+testDriver.cpp:114
+...............................................................................
+
+testDriver.cpp:142: 
+PASSED:
+  REQUIRE( LinearSearch<string>::Search(stringArray, 5, data) == -1 )
+with expansion:
+  -1 == -1
+
+===============================================================================
+All tests passed (12 assertions in 4 test cases)
+
