@@ -1,0 +1,7 @@
+g++ -Wall -c linearSearch.cpp
+
+g++ -Wall -c testDriver.cpp
+
+g++ -o testDriver testDriver.o linearSearch.o
+
+testDriver.exe && testDriver.exe -s > TestResults.txt

@@ -1,6 +1,6 @@
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-test.exe is a Catch v1.5.6 host application.
+testDriver.exe is a Catch v1.5.6 host application.
 Run with -? for options
 
 -------------------------------------------------------------------------------
