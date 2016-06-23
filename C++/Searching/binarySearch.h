@@ -6,7 +6,7 @@
 #define BINARYSEARCH_H
 
 template<typename T>
-class LinearSearch
+class BinarySearch
 {
 public:
 	int static Search(T array[], int length, T data);
