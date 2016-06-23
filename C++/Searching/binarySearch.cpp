@@ -28,3 +28,6 @@ int BinarySearch<T>::Search(T array[], int length, T data)
 }
 
 template class BinarySearch<int>;
+template class BinarySearch<char>;
+template class BinarySearch<double>;
+template class BinarySearch<std::string>;
