@@ -1,9 +1,10 @@
 #include <string>
 #include "bubbleSort.h"
 
-void swap(int *a, int *b)
+template<typename T>
+void swap(T *a, T *b)
 {
-	int temp;
+	T temp;
 	temp = *a;
 	*a = *b;
 	*b = temp;
@@ -36,5 +37,5 @@ T *BubbleSort<T>::Sort(T array[], int len, bool type)
 
 template class BubbleSort<int>;
 template class BubbleSort<double>;
-// template class BubbleSort<char>;
-// template class BubbleSort<std::string>;
+template class BubbleSort<char>;
+template class BubbleSort<std::string>;
