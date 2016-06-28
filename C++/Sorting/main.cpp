@@ -66,6 +66,15 @@ int main()
 	string *strArrayAsc = BubbleSort<string>::Sort(strArray, 5, true);
 	cout << "Sorted array: ";
 	displayArray<string>(strArrayAsc, 5);
+	cout << endl;
+
+	// improved bubble sort
+	int arrayI[] = {5, 1, 2, 3, 4};
+	cout << "Original array: ";
+	displayArray<int>(arrayI, 5);
+	int *arrayIAsc = BubbleSort<int>::SortImp(arrayI, 5, true);
+	cout << "Sorted array: ";
+	displayArray<int>(arrayIAsc, 5);
 
 	return 0;
 }
