@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include "bubbleSort.h"
 #include "selectionSort.h"
+#include "insertionSort.h"
 using namespace std;
 
 // Function to display elements of an array
 template<typename T>
-void displayArray(T array[], int len)
-{
+void displayArray(T array[], int len) {
 	for (int i = 0; i < len; i++)
 		cout << array[i] << " ";
 	cout << endl;
@@ -119,6 +119,40 @@ void TestSelectionSort() {
 	return;
 }
 
+// Function convering all test cases for insertion sort
+void TestInsertionSort() {
+
+	cout << "Testing insertion sort ... " << endl << endl;
+	int intArray1[] = {5, 4, 3, 2, 1};
+
+	// ascending order sort
+	cout << "Original array: ";
+	displayArray<int>(intArray1, 5);
+	int *intArray1Asc = InsertionSort<int>::Sort(intArray1, 5, true);
+	cout << "Sorted array: ";
+	displayArray<int>(intArray1Asc, 5);
+	cout << endl;
+
+	// descending order sort
+	cout << "Original array: ";
+	displayArray<int>(intArray1Asc, 5);
+	int *intArray1Dsc = SelectionSort<int>::Sort(intArray1Asc, 5, false);
+	cout << "Sorted array: ";
+	displayArray<int>(intArray1Dsc, 5);
+	cout << endl;
+
+	// random array
+	int intArray2[] = {5, 1, 2, 4, 3, 0};
+	cout << "Original array: ";
+	displayArray<int>(intArray2, 6);
+	int *intArray2Asc = SelectionSort<int>::Sort(intArray2, 6, true);
+	cout << "Sorted array: ";
+	displayArray<int>(intArray2Asc, 6);
+	cout << endl;
+
+	return;
+}
+
 int main(int argc, char* argv[])
 {
 	switch (atoi(argv[1]))
@@ -133,10 +167,16 @@ int main(int argc, char* argv[])
 			TestSelectionSort();
 			break;
 
+		case 3:
+			// testing insertion sort
+			TestInsertionSort();
+			break;
+
 		default:
 			// testing all sorting algorithms
 			TestBubbleSort();
 			TestSelectionSort();
+			TestInsertionSort();
 			break;
 	}
 
