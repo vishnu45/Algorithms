@@ -1,10 +1,12 @@
 #include "selectionSort.h"
+#include "common.h"
+#include <string>
 
 template<typename T>
 T *SelectionSort<T>::Sort(T array[], int n, bool type)
 {
-	T temp;
 	int smallIndex;
+	
 	// ascending order sort
 	if (type)
 	{
@@ -16,11 +18,10 @@ T *SelectionSort<T>::Sort(T array[], int n, bool type)
 				if (array[j] < array[smallIndex])
 					smallIndex = j;				
 			}
-			temp = array[smallIndex];
-			array[smallIndex] = array[i];
-			array[i] = temp;
+			swap(&array[smallIndex], &array[i]);
 		}
 	}
+	
 	// descending order sort
 	else
 	{
@@ -32,9 +33,7 @@ T *SelectionSort<T>::Sort(T array[], int n, bool type)
 				if (array[j] > array[smallIndex])
 					smallIndex = j;				
 			}
-			temp = array[smallIndex];
-			array[smallIndex] = array[i];
-			array[i] = temp;
+			swap(&array[smallIndex], &array[i]);
 		}	
 	}
 
@@ -42,3 +41,6 @@ T *SelectionSort<T>::Sort(T array[], int n, bool type)
 }
 
 template class SelectionSort<int>;
+template class SelectionSort<char>;
+template class SelectionSort<double>;
+template class SelectionSort<std::string>;
