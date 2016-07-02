@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include "bubbleSort.h"
 #include "selectionSort.h"
 using namespace std;
@@ -15,6 +16,9 @@ void displayArray(T array[], int len)
 
 // Function covering all test cases for bubble sort
 void TestBubbleSort() {
+
+	cout << "Testing bubble sort ... " << endl << endl;
+
 	// check integer array
 	int intArray1[] = {5, 4, 3, 2, 1};
 
@@ -77,12 +81,14 @@ void TestBubbleSort() {
 	int *arrayIAsc = BubbleSort<int>::SortImp(arrayI, 5, true);
 	cout << "Sorted array: ";
 	displayArray<int>(arrayIAsc, 5);
+	cout << endl;
 	return;
 }
 
 // Function covering all test cases for selection sort
 void TestSelectionSort() {
 
+	cout << "Testing selection sort ... " << endl << endl;
 	int intArray1[] = {5, 4, 3, 2, 1};
 
 	// ascending order sort
@@ -113,13 +119,26 @@ void TestSelectionSort() {
 	return;
 }
 
-int main()
+int main(int argc, char* argv[])
 {
-	// Testing bubble sort
-	// TestBubbleSort();
+	switch (atoi(argv[1]))
+	{
+		case 1:
+			// testing bubble sort
+			TestBubbleSort();
+			break;
 
-	// Testing selection sort
-	TestSelectionSort();
+		case 2:
+			// testing selection sort
+			TestSelectionSort();
+			break;
+
+		default:
+			// testing all sorting algorithms
+			TestBubbleSort();
+			TestSelectionSort();
+			break;
+	}
 
 	return 0;
 }

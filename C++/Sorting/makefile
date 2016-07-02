@@ -1,4 +1,4 @@
-OBJS = main.o bubbleSort.o
+OBJS = main.o bubbleSort.o selectionSort.o
 CC = g++
 DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
@@ -15,6 +15,10 @@ main.o: \
 bubbleSort.o: \
 	bubbleSort.cpp bubbleSort.h
 	$(CC) $(CFLAGS) bubbleSort.cpp
+
+selectionSort.o: \
+	selectionSort.cpp selectionSort.h
+	$(CC) $(CFLAGS) selectionSort.cpp
 
 clean:
 	del $(OBJS) main.exe
