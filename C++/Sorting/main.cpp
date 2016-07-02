@@ -1,7 +1,9 @@
 #include <iostream>
 #include "bubbleSort.h"
+#include "selectionSort.h"
 using namespace std;
 
+// Function to display elements of an array
 template<typename T>
 void displayArray(T array[], int len)
 {
@@ -11,8 +13,8 @@ void displayArray(T array[], int len)
 	return;
 }
 
-int main()
-{
+// Function covering all test cases for bubble sort
+void TestBubbleSort() {
 	// check integer array
 	int intArray1[] = {5, 4, 3, 2, 1};
 
@@ -75,6 +77,49 @@ int main()
 	int *arrayIAsc = BubbleSort<int>::SortImp(arrayI, 5, true);
 	cout << "Sorted array: ";
 	displayArray<int>(arrayIAsc, 5);
+	return;
+}
+
+// Function covering all test cases for selection sort
+void TestSelectionSort() {
+
+	int intArray1[] = {5, 4, 3, 2, 1};
+
+	// ascending order sort
+	cout << "Original array: ";
+	displayArray<int>(intArray1, 5);
+	int *intArray1Asc = SelectionSort<int>::Sort(intArray1, 5, true);
+	cout << "Sorted array: ";
+	displayArray<int>(intArray1Asc, 5);
+	cout << endl;
+
+	// descending order sort
+	cout << "Original array: ";
+	displayArray<int>(intArray1Asc, 5);
+	int *intArray1Dsc = SelectionSort<int>::Sort(intArray1Asc, 5, false);
+	cout << "Sorted array: ";
+	displayArray<int>(intArray1Dsc, 5);
+	cout << endl;
+
+	// random array
+	int intArray2[] = {5, 1, 2, 4, 3, 0};
+	cout << "Original array: ";
+	displayArray<int>(intArray2, 6);
+	int *intArray2Asc = SelectionSort<int>::Sort(intArray2, 6, true);
+	cout << "Sorted array: ";
+	displayArray<int>(intArray2Asc, 6);
+	cout << endl;
+
+	return;
+}
+
+int main()
+{
+	// Testing bubble sort
+	// TestBubbleSort();
+
+	// Testing selection sort
+	TestSelectionSort();
 
 	return 0;
 }
