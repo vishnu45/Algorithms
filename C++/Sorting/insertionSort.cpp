@@ -7,7 +7,8 @@
 template<typename T>
 T *InsertionSort<T>::Sort(T array[], int len, bool type)
 {
-	int i, j, temp;
+	int i, j;
+	T temp;
 	if (type)
 	{
 		for (i = 1; i < len; i++)
@@ -44,3 +45,6 @@ T *InsertionSort<T>::Sort(T array[], int len, bool type)
 }
 
 template class InsertionSort<int>;
+template class InsertionSort<char>;
+template class InsertionSort<double>;
+template class InsertionSort<std::string>;
