@@ -174,7 +174,15 @@ void TestMergeSort() {
 	int *array4_1_dsc = MergeSort<int>::Sort(array4_1, 9, false);
 	cout << "Sorted array: ";
 	displayArray<int>(array4_1_dsc, 9);
-	// cout << endl;	
+	cout << endl;
+
+	char array4_2[] = {'q', 'w', 'e', 'r', 't', 'y'};
+	// ascending order character sort
+	cout << "Original array: ";
+	displayArray<char>(array4_2, 6);
+	char *array4_2_asc = MergeSort<char>::Sort(array4_2, 6, true);
+	cout << "Sorted array: ";
+	displayArray<char>(array4_2_asc, 6);
 
 	return;
 }
