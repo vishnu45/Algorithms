@@ -154,18 +154,27 @@ void TestInsertionSort() {
 	return;
 }
 
+// Function convering all test cases for merge sort
 void TestMergeSort() {
 
 	cout << "Testing merge sort ... " << endl << endl;
-	int array4[] = {8, 7, 6, 15, 4, 3, 2, 1, 10};
+	int array4_1[] = {8, 5, 1, 4, 21, 21, 9, 0, 13};
 
 	// ascending order sort
 	cout << "Original array: ";
-	displayArray<int>(array4, 9);
-	int *array4_asc = MergeSort<int>::Sort(array4, 9);
+	displayArray<int>(array4_1, 9);
+	int *array4_1_asc = MergeSort<int>::Sort(array4_1, 9, true);
 	cout << "Sorted array: ";
-	displayArray<int>(array4_asc, 9);
+	displayArray<int>(array4_1_asc, 9);
 	cout << endl;
+
+	// descending order sort
+	cout << "Original array: ";
+	displayArray<int>(array4_1, 9);
+	int *array4_1_dsc = MergeSort<int>::Sort(array4_1, 9, false);
+	cout << "Sorted array: ";
+	displayArray<int>(array4_1_dsc, 9);
+	// cout << endl;	
 
 	return;
 }

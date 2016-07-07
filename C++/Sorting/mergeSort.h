@@ -4,7 +4,7 @@
 template<typename T>
 class MergeSort {
 public:
-	T static *Sort(T array[], int n);
+	T static *Sort(T array[], int n, bool type);
 };
 
 #endif
