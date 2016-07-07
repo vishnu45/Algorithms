@@ -3,6 +3,7 @@
 #include "bubbleSort.h"
 #include "selectionSort.h"
 #include "insertionSort.h"
+#include "mergeSort.h"
 using namespace std;
 
 // Function to display elements of an array
@@ -153,6 +154,22 @@ void TestInsertionSort() {
 	return;
 }
 
+void TestMergeSort() {
+
+	cout << "Testing merge sort ... " << endl << endl;
+	int array4[] = {8, 7, 6, 15, 4, 3, 2, 1, 10};
+
+	// ascending order sort
+	cout << "Original array: ";
+	displayArray<int>(array4, 9);
+	int *array4_asc = MergeSort<int>::Sort(array4, 9);
+	cout << "Sorted array: ";
+	displayArray<int>(array4_asc, 9);
+	cout << endl;
+
+	return;
+}
+
 int main(int argc, char* argv[])
 {
 	switch (atoi(argv[1]))
@@ -172,11 +189,17 @@ int main(int argc, char* argv[])
 			TestInsertionSort();
 			break;
 
+		case 4:
+			// testing merge sort
+			TestMergeSort();
+			break;
+
 		default:
 			// testing all sorting algorithms
 			TestBubbleSort();
 			TestSelectionSort();
 			TestInsertionSort();
+			TestMergeSort();
 			break;
 	}
 
