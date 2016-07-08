@@ -4,6 +4,7 @@
 #include "selectionSort.h"
 #include "insertionSort.h"
 #include "mergeSort.h"
+#include "heapSort.h"
 using namespace std;
 
 // Function to display elements of an array
@@ -183,6 +184,31 @@ void TestMergeSort() {
 	char *array4_2_asc = MergeSort<char>::Sort(array4_2, 6, true);
 	cout << "Sorted array: ";
 	displayArray<char>(array4_2_asc, 6);
+	cout << endl;
+
+	return;
+}
+
+void TestHeapSort() {
+
+	cout << "Testing heap sort ... " << endl << endl;
+	int array5_1[] = {8, 5, 1, 4, 21, 21, 9, 0, 13};
+
+	// ascending order sort
+	cout << "Original array: ";
+	displayArray<int>(array5_1, 9);
+	int *array5_1_asc = HeapSort<int>::Sort(array5_1, 9, true);
+	cout << "Sorted array: ";
+	displayArray<int>(array5_1_asc, 9);
+	cout << endl;
+
+	// descending order sort
+	cout << "Original array: ";
+	displayArray<int>(array5_1, 9);
+	int *array5_1_dsc = MergeSort<int>::Sort(array5_1, 9, false);
+	cout << "Sorted array: ";
+	displayArray<int>(array5_1_dsc, 9);
+	cout << endl;
 
 	return;
 }
@@ -211,12 +237,18 @@ int main(int argc, char* argv[])
 			TestMergeSort();
 			break;
 
+		case 5:
+			// testing heap sort
+			TestHeapSort();
+			break;
+
 		default:
 			// testing all sorting algorithms
 			TestBubbleSort();
 			TestSelectionSort();
 			TestInsertionSort();
 			TestMergeSort();
+			TestHeapSort();
 			break;
 	}
 

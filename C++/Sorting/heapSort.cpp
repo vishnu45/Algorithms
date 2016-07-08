@@ -2,27 +2,46 @@
 #include "heapSort.h"
 
 template<typename T>
-void heapify(T array[], int pos, int length)
+void heapify(T array[], int pos, int length, bool type)
 {
 	int left = 2 * pos + 1;
 	int right = 2 * pos + 2;
-	int largest = pos;
-	int temp;
-
-	if (left < length && array[left] > array[pos])
-		largest = left;
-
-	if (right < length && array[right] > array[largest])
-		largest = right;
-
-	if (largest != pos)
+	int swap = pos;
+	T temp;
+	
+	if (type)
 	{
-		temp = array[pos];
-		array[pos] = array[largest];
-		array[largest] = temp;
+		if (left < length && array[left] > array[pos])
+			swap = left;
 
-		heapify(array, largest, length);
+		if (right < length && array[right] > array[swap])
+			swap = right;
+		if (swap != pos)
+		{
+			temp = array[pos];
+			array[pos] = array[swap];
+			array[swap] = temp;
+
+			heapify(array, swap, length, type);
+		}
 	}
+
+	else
+	{
+		if (left < length && array[left] > array[pos])
+			swap = left;
+
+		if (right < length && array[right] > array[swap])
+			swap = right;
+		if (swap != pos)
+		{
+			temp = array[pos];
+			array[pos] = array[swap];
+			array[swap] = temp;
+
+			heapify(array, swap, length, type);
+		}
+	}	
 
 	return;
 }
@@ -33,7 +52,7 @@ T *HeapSort<T>::Sort(T array[], int length, bool type) {
 	int temp;
 	// build max heap
 	for (int i = length/2 - 1; i >= 0; i--)
-		heapify(array, i, length);
+		heapify(array, i, length, type);
 
 	for (int i = length; i > 1; i--)
 	{
@@ -43,7 +62,7 @@ T *HeapSort<T>::Sort(T array[], int length, bool type) {
 		array[0] = temp;
 
 		// heapify
-		heapify(array, 0, i-1);
+		heapify(array, 0, i-1, type);
 	}
 
 	return array;
