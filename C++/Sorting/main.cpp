@@ -205,9 +205,18 @@ void TestHeapSort() {
 	// descending order sort
 	cout << "Original array: ";
 	displayArray<int>(array5_1, 9);
-	int *array5_1_dsc = MergeSort<int>::Sort(array5_1, 9, false);
+	int *array5_1_dsc = HeapSort<int>::Sort(array5_1, 9, false);
 	cout << "Sorted array: ";
 	displayArray<int>(array5_1_dsc, 9);
+	cout << endl;
+
+	string array5_2[] = {"My", "name", "is", "Vishnu", "Vidyan", "."};
+	// ascending order string sort
+	cout << "Original array: ";
+	displayArray<string>(array5_2, 6);
+	string *array5_2_asc = HeapSort<string>::Sort(array5_2, 6, true);
+	cout << "Sorted array: ";
+	displayArray<string>(array5_2_asc, 6);
 	cout << endl;
 
 	return;

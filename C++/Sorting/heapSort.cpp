@@ -1,5 +1,5 @@
-
 #include "heapSort.h"
+#include <string>
 
 template<typename T>
 void heapify(T array[], int pos, int length, bool type)
@@ -49,7 +49,7 @@ void heapify(T array[], int pos, int length, bool type)
 template<typename T>
 T *HeapSort<T>::Sort(T array[], int length, bool type) {
 
-	int temp;
+	T temp;
 	// build max heap
 	for (int i = length/2 - 1; i >= 0; i--)
 		heapify(array, i, length, type);
@@ -69,3 +69,6 @@ T *HeapSort<T>::Sort(T array[], int length, bool type) {
 }
 
 template class HeapSort<int>;
+template class HeapSort<char>;
+template class HeapSort<double>;
+template class HeapSort<std::string>;
