@@ -4,6 +4,7 @@ OBJS = main.o \
  	insertionSort.o \
  	mergeSort.o \
  	heapSort.o \
+ 	quickSort.o \
  	common.o
 CC = g++
 DEBUG = -g
@@ -42,6 +43,11 @@ heapSort.o: \
 	heapSort.cpp heapSort.h \
 	common.cpp
 	$(CC) $(CFLAGS) heapSort.cpp
+
+quickSort.o: \
+	quickSort.cpp quickSort.h \
+	common.cpp
+	$(CC) $(CFLAGS) quickSort.cpp
 
 common.o: \
 	common.cpp common.h
