@@ -5,7 +5,11 @@
 #include "insertionSort.h"
 #include "mergeSort.h"
 #include "heapSort.h"
+#include "quickSort.h"
 using namespace std;
+
+// macro to find array length
+#define COUNT(arr) (int)(sizeof(arr) / sizeof(arr[0]));
 
 // Function to display elements of an array
 template<typename T>
@@ -222,6 +226,17 @@ void TestHeapSort() {
 	return;
 }
 
+void TestQuickSort() {
+
+	cout << "Testing quick sort ... " << endl << endl;
+	int array_1[] = {8, 5, 1, 4, 21, 21, 9, 0, 13};
+
+	cout << "Original array: ";
+	displayArray<int>(array_1, 9);
+	cout  << "Sorted array: ";
+	displayArray<int>(QuickSort::Sort(array_1, 9, true), 9);
+}
+
 int main(int argc, char* argv[])
 {
 	switch (atoi(argv[1]))
@@ -249,6 +264,11 @@ int main(int argc, char* argv[])
 		case 5:
 			// testing heap sort
 			TestHeapSort();
+			break;
+
+		case 6:
+			// testing quick sort
+			TestQuickSort();
 			break;
 
 		default:
