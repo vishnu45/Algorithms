@@ -193,6 +193,7 @@ void TestMergeSort() {
 	return;
 }
 
+// Function covering all test cases for heap sort
 void TestHeapSort() {
 
 	cout << "Testing heap sort ... " << endl << endl;
@@ -226,16 +227,36 @@ void TestHeapSort() {
 	return;
 }
 
+// Function covering all test cases for quick sort
 void TestQuickSort() {
 
 	cout << "Testing quick sort ... " << endl << endl;
 	int array_1[] = {8, 5, 1, 4, 21, 21, 9, 0, 13};
 
+	// ascending order sort
 	cout << "Original array: ";	
 	displayArray<int>(array_1,9);
 	cout  << "Sorted array: ";
-	QuickSort::Sort(array_1, 9, true);
+	QuickSort<int>::Sort(array_1, 9, true);
 	displayArray<int>(array_1, 9);
+	cout << endl;
+
+	// descending order sort
+	double array_2[] = {1.2, 3.4, 9.8, 22.2, 10.5, 99.1, 0.3};
+	cout << "Original array: ";	
+	displayArray<double>(array_2, 7);
+	cout  << "Sorted array: ";
+	QuickSort<double>::Sort(array_2, 7, false);
+	displayArray<double>(array_2, 7);
+	cout << endl;
+
+	// ascending order string sort
+	string array_3[] = {"This", "is", "a", "program", "!"};
+	cout << "Original array: ";	
+	displayArray<string>(array_3, 5);
+	cout  << "Sorted array: ";
+	QuickSort<string>::Sort(array_3, 5, false);
+	displayArray<string>(array_3, 5);
 }
 
 int main(int argc, char* argv[])
