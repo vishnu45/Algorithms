@@ -1,11 +1,5 @@
 #include "quickSort.h"
-
-void swapElements(int *a, int *b)
-{
-	int temp = *a;
-	*a = *b;
-	*b = temp;
-}
+#include "common.h"
 
 // Function to partition array into 2 arrays based on the pivot element
 int Partition(int array[], int left, int right)
@@ -22,10 +16,10 @@ int Partition(int array[], int left, int right)
 		if (array[j] >= pivot)
 		{
 			i++;
-			swapElements(&array[i], &array[j]);
+			swap(&array[i], &array[j]);
 		}
 	}
-	swapElements(&array[i+1], &array[right]);
+	swap(&array[i+1], &array[right]);
 
 	// return current pivot index
 	return (i+1);
