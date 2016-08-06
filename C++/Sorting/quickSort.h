@@ -4,7 +4,7 @@
 class QuickSort
 {
 public:
-	int static *Sort(int *array, int len, bool type);
+	void static Sort(int array[], int len, bool type);
 };
 
 #endif
