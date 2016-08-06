@@ -9,7 +9,7 @@
 using namespace std;
 
 // macro to find array length
-#define COUNT(arr) (int)(sizeof(arr) / sizeof(arr[0]));
+#define COUNT(arr) (int)( (sizeof(arr)) / (sizeof(arr[0])));
 
 // Function to display elements of an array
 template<typename T>
@@ -231,10 +231,11 @@ void TestQuickSort() {
 	cout << "Testing quick sort ... " << endl << endl;
 	int array_1[] = {8, 5, 1, 4, 21, 21, 9, 0, 13};
 
-	cout << "Original array: ";
-	displayArray<int>(array_1, 9);
+	cout << "Original array: ";	
+	displayArray<int>(array_1,9);
 	cout  << "Sorted array: ";
-	displayArray<int>(QuickSort::Sort(array_1, 9, true), 9);
+	QuickSort::Sort(array_1, 9, true);
+	displayArray<int>(array_1, 9);
 }
 
 int main(int argc, char* argv[])

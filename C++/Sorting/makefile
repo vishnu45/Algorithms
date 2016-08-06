@@ -7,7 +7,7 @@ OBJS = main.o \
  	quickSort.o \
  	common.o
 CC = g++
-DEBUG = -g
+DEBUG = -g -w
 CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
