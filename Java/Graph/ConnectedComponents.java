@@ -1,3 +1,7 @@
+/** -------------------------------------------------------
+ *	To retrieve the connected components of a graph
+-------------------------------------------------------- */
+
 import java.util.*;
 public class ConnectedComponents {
 
