@@ -1,5 +1,5 @@
 /** -------------------------------------------------------
- *	To check whether a graph is acyclic or not
+ *	To check whether an undirected graph is acyclic or not
 -------------------------------------------------------- */
 
 import java.util.*;
