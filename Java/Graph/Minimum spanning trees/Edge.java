@@ -52,8 +52,6 @@ public class Edge {
 		if (E1.compareTo(E2) < 0) { StdOut.println("E1 < E2"); }
 		if (E1.compareTo(E2) == 0) { StdOut.println("E1 = E2"); }
 
-
 	}
-
 
 }
