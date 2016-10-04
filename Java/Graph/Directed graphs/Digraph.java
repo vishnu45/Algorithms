@@ -5,15 +5,13 @@ import java.util.*;
 public class Digraph {
 
 	private final int V;				// number of vertices
-	private int E;						// number of edges
-	private boolean[] marked;			// to check whether vertex was visited
+	private int E;						// number of edges	
 	private LinkedList<Integer>[] adj;	// adjacency list
 
 	// constructor for a V-vertex digraph with no edges
 	public Digraph(int V) {
 		this.V = V;
-		this.E = 0;
-		marked = new boolean[V];
+		this.E = 0;		
 		adj = new LinkedList[V];
 		for (int v = 0; v < V; v++) {
 			adj[v] = new LinkedList<Integer>();
