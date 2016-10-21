@@ -1,21 +1,31 @@
 /* --------------------------------------------------------
-	To find maximum element in a binary tree
+	Size of a binary tree (recursive and iterative)
 -------------------------------------------------------- */
 import java.util.*;
-public class bTreeMaxElement {
+public class bTreeSize {
 
-	// returns max node in tree
-	public static int maxTreeValue(BinaryNode root) {
-		int max = root.data;
-		BinaryNode temp;
+	// size of tree (#elements) recursively
+	public static int sizeRecursive(BinaryNode root) {
+		int size;
+		if (root == null) {
+			return 0;
+		}
+		size = 	sizeRecursive(root.left) 	// size of left child
+				+ 1 + 						// size of current parent
+				sizeRecursive(root.right);	// size of right child
+		return size;
+	}
+
+	// size of tree iteratively
+	public static int sizeIterative(BinaryNode root) {
 		Queue<BinaryNode> NodeQueue = new LinkedList<BinaryNode>();
+		BinaryNode temp = root;
+		int size = 0;
 		NodeQueue.add(root);
 
 		while (NodeQueue.size() != 0) {
-			temp = NodeQueue.remove(); 
-			if (temp.data > max) {
-				max = temp.data;
-			}
+			size++;
+			temp = NodeQueue.remove();
 			if (temp.left != null) {
 				NodeQueue.add(temp.left);
 			}
@@ -23,8 +33,9 @@ public class bTreeMaxElement {
 				NodeQueue.add(temp.right);
 			}
 		}
-		return max;
+		return size;
 	}
+	
 
 	// ------------------------ MAIN ------------------------
 	public static void main(String[] args) {		
@@ -39,7 +50,7 @@ public class bTreeMaxElement {
 		root.right.left.left = new BinaryNode(9, null, null);
 		root.right.left.right = new BinaryNode(10, null, null);
 		root.right.left.right.left = new BinaryNode(11, null, null);
-
-		System.out.println("Max value: " + maxTreeValue(root));
+		System.out.println("Recursive size: " + sizeRecursive(root));
+		System.out.println("Iterative size: " + sizeIterative(root));
 	}
 }
