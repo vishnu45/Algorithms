@@ -27,8 +27,17 @@ public class bTreeMaxElement {
 	}
 
 	// ------------------------ MAIN ------------------------
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		BinaryNode root = new BinaryNode(1, null, null);
+		root.left = new BinaryNode(2, null, null);
+		root.left.left = new BinaryNode(4, null, null);
+		root.left.right = new BinaryNode(5, null, null);
+		root.right = new BinaryNode(3, null, null);
+		root.right.left = new BinaryNode(6, null, null);
+		root.right.right = new BinaryNode(7, null, null);
+		System.out.println("Max value: " + maxTreeValue(root));
+
+		root = new BinaryNode(1, null, null);
 		root.left = new BinaryNode(2, null, null);
 		root.left.left = new BinaryNode(4, null, null);
 		root.left.right = new BinaryNode(5, null, null);
@@ -39,7 +48,6 @@ public class bTreeMaxElement {
 		root.right.left.left = new BinaryNode(9, null, null);
 		root.right.left.right = new BinaryNode(10, null, null);
 		root.right.left.right.left = new BinaryNode(11, null, null);
-
 		System.out.println("Max value: " + maxTreeValue(root));
 	}
 }
