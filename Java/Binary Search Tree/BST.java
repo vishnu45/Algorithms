@@ -53,9 +53,52 @@ public class BST {
 		}		
 	}
 
-	// delete element from binary search tree
+	// search for an element in bst (recursive)
+	public static boolean searchRec(GBinaryNode<Integer> root, int value) {
+		// if null root is reached
+		if (root == null) {
+			return false;
+		}
+		// if value greater than root move right
+		if (value > root.data) {
+			return searchRec(root.right, value);			
+		}
+		// if value lesser than root move left
+		else if (value < root.data) {
+			return searchRec(root.left, value);
+		}
+		// else if data == value
+		else {
+			return true;
+		}
+	}
 
-	// search for an element in binary search tree (true/false)
+	// search for an element in bst (iterative)
+	public static boolean searchItr(GBinaryNode<Integer> root, int value) {
+		// if null root is reached
+		if (root == null) {
+			return false;
+		}
+		GBinaryNode<Integer> temp = root;
+		while (temp != null) {
+			// if value greater than root move right
+			if (value > temp.data) {
+				temp = temp.right;
+			}
+			// if value lesser than root move left
+			else if (value < temp.data) {
+				temp = temp.left;
+			}
+			// if value found
+			else {
+				return true;
+			}
+		}
+		// if the entire BST is traversed
+		return false;
+	}
+	
+	// delete element from binary search tree
 
 	// returns minimum element in bst
 
@@ -81,5 +124,14 @@ public class BST {
 		insertRec(root, 1);	insertRec(root, 4);
 		insertItr(root, 6);	insertItr(root, 9);
 		printTree(root);
+		System.out.println();
+		System.out.println("5: " + searchRec(root, 5));
+		System.out.println("1: " + searchRec(root, 1));
+		System.out.println("2: " + searchRec(root, 2));
+		System.out.println("5: " + searchItr(root, 5));
+		System.out.println("1: " + searchItr(root, 1));
+		System.out.println("2: " + searchItr(root, 2));
+		// insertItr(root, 2);
+		// System.out.println("2: " + searchItr(root, 2));
 	}
 }
