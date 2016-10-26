@@ -98,11 +98,131 @@ public class BST {
 		return false;
 	}
 	
+	// returns minimum element in bst (recursive)
+	public static int findMinRec(GBinaryNode<Integer> root) {
+		// if null tree
+		if (root == null) {
+			System.out.println("Empty tree");			
+			return -1;
+		}
+		// once we reach left most leaf node
+		else if (root.left == null) {
+			return root.data;
+		}
+		// traverse to left child node
+		else {
+			return findMinRec(root.left);
+		}
+	}
+
+	// returns minimum element in bst (iterative)
+	public static int findMinItr(GBinaryNode<Integer> root) {
+		// if null tree
+		if (root == null) {
+			System.out.println("Empty tree");			
+			return -1;
+		}
+		GBinaryNode<Integer> temp = root;
+		// until the left most leaf is reached
+		while (temp.left != null) {
+			temp = temp.left;
+		}
+		return temp.data;
+	}
+
+	// returns maximum element in bst (recursive)
+	public static int findMaxRec(GBinaryNode<Integer> root) {
+		// if null tree
+		if (root == null) {
+			System.out.println("Empty tree");			
+			return -1;
+		}
+		// once we reach right most leaf node
+		else if (root.right == null) {
+			return root.data;
+		}
+		// traverse to right child node
+		else {
+			return findMaxRec(root.right);
+		}
+	}
+
+	// returns maximum element in bst (iterative)
+	public static int findMaxItr(GBinaryNode<Integer> root) {
+		// if null tree
+		if (root == null) {
+			System.out.println("Empty tree");			
+			return -1;
+		}
+		GBinaryNode<Integer> temp = root;
+		// until the right most leaf is reached
+		while (temp.right != null) {
+			temp = temp.right;
+		}
+		return temp.data;
+	}
+
+	// find inorder predessor and successor
+	public static int[] predSucc(GBinaryNode<Integer> root, int key) {
+		int[] retVal = new int[]{-1, -1};
+		// null tree
+		if (root == null) {
+			System.out.println("Empty tree");
+			return new int[]{-1, -1};
+		}
+		// find the key node
+		GBinaryNode<Integer> keyNode = root;		
+		while (true) {
+			// if unable to find key in tree
+			if (keyNode == null) {
+				System.out.println("Key not in tree");
+				return new int[]{-1, -1};	
+			}
+			// traverse right
+			if (key > keyNode.data) {
+				keyNode = keyNode.right;
+			}
+			// traverse left
+			else if (key < keyNode.data) {
+				keyNode = keyNode.left;
+			}
+			// found key
+			else {
+				break;
+			}
+		}
+		
+		GBinaryNode<Integer> predessor = keyNode.left;
+		GBinaryNode<Integer> successor = keyNode.right;
+		// if there are no any potential predessor for key
+		if (predessor == null) {
+			System.out.println("No predessor for key");			
+		}
+		else {
+			// traverse to the right most node in left tree
+			while (predessor.right != null) {
+				predessor = predessor.right;
+			}
+			// first value in retVal is predessor
+			retVal[0] = predessor.data;
+		}
+		// if there are no any potential successor for key
+		if (successor == null) {
+			System.out.println("No successor for key");			
+		}
+		else {
+			// traverse to the left most node in right tree
+			while (successor.left != null) {
+				successor = successor.left;
+			}
+			// second value in retVal is predessor
+			retVal[1] = successor.data;
+		}
+		return retVal;
+	}
+
 	// delete element from binary search tree
-
-	// returns minimum element in bst
-
-	// returns maximum element in bst
+	// public static void delete
 
 	// print BST
 	public static void printTree(GBinaryNode<Integer> root) {
@@ -133,5 +253,21 @@ public class BST {
 		System.out.println("2: " + searchItr(root, 2));
 		// insertItr(root, 2);
 		// System.out.println("2: " + searchItr(root, 2));
+		System.out.println("Min (recursive): " + findMinRec(root));
+		System.out.println("Min (iterative): " + findMinItr(root));
+		System.out.println("Max (recursive): " + findMaxRec(root));
+		System.out.println("Max (iterative): " + findMaxItr(root));
+
+		root = new GBinaryNode<Integer>(15, null, null);
+		insertRec(root, 10); insertRec(root, 20);
+		insertRec(root, 5); insertRec(root, 12);
+		insertRec(root, 17); insertRec(root, 25);
+		insertRec(root, 11); // insertRec(root, 14);
+		insertRec(root, 23); // insertRec(root, 16);
+		insertRec(root, 22); insertRec(root, 24);
+		for (int i: predSucc(root, 15)) {
+			System.out.print(i + " ");
+		}
+
 	}
 }
