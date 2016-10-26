@@ -222,7 +222,46 @@ public class BST {
 	}
 
 	// delete element from binary search tree
-	// public static void delete
+	public static GBinaryNode<Integer> delete(GBinaryNode<Integer> root, int key) {
+		// if tree is empty / unable to find key
+		if (root == null) {
+			System.out.println("Key not found in tree");
+			return root;
+		}
+		else {
+			// traverse right
+			if (key > root.data) {
+				root.right = delete(root.right, key);
+			}
+			// traverse left
+			else if (key < root.data) {
+				root.left = delete(root.left, key);
+			}
+			// key found
+			else {
+				// with no child or one of either children
+				if (root.left == null) {
+					return root.right;
+				}
+				else if (root.right == null) {
+					return root.left;
+				}
+
+				// with both children present - find inorder predecessor
+				// replace current node with predecessor				
+				GBinaryNode<Integer> predecessor = root.left;
+				// find the predessor 
+				while (predecessor.right != null) {				
+					predecessor = predecessor.right;
+				}
+				// replace root data with that of predecessor
+				root.data = predecessor.data;
+				// delete predecessor from tree with root as current node
+				root.left = delete(root.left, root.data);
+			}
+			return root;
+		}
+	}
 
 	// print BST
 	public static void printTree(GBinaryNode<Integer> root) {
@@ -262,12 +301,24 @@ public class BST {
 		insertRec(root, 10); insertRec(root, 20);
 		insertRec(root, 5); insertRec(root, 12);
 		insertRec(root, 17); insertRec(root, 25);
-		insertRec(root, 11); // insertRec(root, 14);
-		insertRec(root, 23); // insertRec(root, 16);
+		insertRec(root, 11); insertRec(root, 14);
+		insertRec(root, 23); insertRec(root, 16);
 		insertRec(root, 22); insertRec(root, 24);
+		insertRec(root, 18);
 		for (int i: predSucc(root, 15)) {
 			System.out.print(i + " ");
 		}
+		System.out.println();
+		printTree(root);
+		System.out.println();
+		// root = delete(root, 24);
+		// root = delete(root, 22);
+		// root = delete(root, 17);
+		// root = delete(root, 25);
+		root = delete(root, 20);
+		// root = delete(root, 15);
+
+		printTree(root);
 
 	}
 }
