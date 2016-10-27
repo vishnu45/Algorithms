@@ -26,7 +26,7 @@ public class ceilFloorBST {
 	public static int getFloor(GBinaryNode<Integer> root, int value) {
 		// if null tree
 		if (root == null) {
-			return -1;
+			return 999;
 		}		
 		// in case value == root key
 		if (root.data == value) {
@@ -38,13 +38,7 @@ public class ceilFloorBST {
 		}
 		// if value > root key		
 		int floor = getFloor(root.right, value);
-		if (value >= root.data) {
-			System.out.println(root.data);
-			return root.data;
-		}
-		else {
-			return floor;
-		}		
+		return (floor <= value) ? floor : root.data;		
 	}
 
 	// ----------------------- MAIN -----------------------
@@ -56,11 +50,11 @@ public class ceilFloorBST {
 		root.right = new GBinaryNode<Integer>(12, null, null);
 		root.right.left = new GBinaryNode<Integer>(10, null, null);
 		root.right.right = new GBinaryNode<Integer>(14, null, null);
-		// System.out.println(getCeil(root, 1));
-		// System.out.println(getCeil(root, 3));
-		// System.out.println(getCeil(root, 15));
+		System.out.println(getCeil(root, 1));
+		System.out.println(getCeil(root, 3));
+		System.out.println(getCeil(root, 15));
 		System.out.println(getFloor(root, 1));		
-		// System.out.println(getFloor(root, 11));
+		System.out.println(getFloor(root, 11));
 		System.out.println(getFloor(root, 15));
 	}		
 }
