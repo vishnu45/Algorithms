@@ -1,6 +1,13 @@
 /* --------------------------------------------------------
  To find the first common ancestor of two nodes in a 
  binary tree
+-----------------------------------------------------------
+ - Check if the nodes are present on separate sides, one on
+ left and the other on the right -> In such case the root
+ will be the CA.
+ - If in case both are on the same side -> similarly go to
+ the root of that side and again check
+ - Continue this approach
 -------------------------------------------------------- */
 import java.util.*;
 public class t_commonAncestor {
@@ -38,8 +45,7 @@ public class t_commonAncestor {
 		else {
 			// check in left branch
 			return getCA(root.left, n1, n2);
-		}
-		
+		}		
 	}
 
 	// search if nodes are present in tree
