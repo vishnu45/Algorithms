@@ -5,7 +5,10 @@
 public class maxPQ<Key extends Comparable<Key>> {
 
 	private Key[] pq;			// binary heap tree
-	private int size;				// size of heap pq[1..N]
+	private int size;			// size of heap pq[1..N]
+
+	public Key[] getPQ() { return pq; }
+	public void setSize(int value) { this.size = value; }
 
 	/** maxPQ constructor - create a priority queue of initial
 	 *	capacity max */
