@@ -32,3 +32,6 @@
 *.exe
 *.out
 *.app
+
+catch.hpp.gch
+catch.hpp
