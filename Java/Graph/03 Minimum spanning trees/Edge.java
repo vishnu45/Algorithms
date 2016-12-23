@@ -46,11 +46,11 @@ public class Edge {
 		Edge E1 = new Edge(4, 5, .35);
 		Edge E2 = new Edge(4, 7, .37);
 		Edge E3 = new Edge(5, 7, .28);
-		StdOut.println("E1: " + E1.toString());
-		StdOut.println("E2: " + E2.toString());
-		if (E1.compareTo(E2) > 0) { StdOut.println("E1 > E2"); }
-		if (E1.compareTo(E2) < 0) { StdOut.println("E1 < E2"); }
-		if (E1.compareTo(E2) == 0) { StdOut.println("E1 = E2"); }
+		System.out.println("E1: " + E1.toString());
+		System.out.println("E2: " + E2.toString());
+		if (E1.compareTo(E2) > 0) { System.out.println("E1 > E2"); }
+		if (E1.compareTo(E2) < 0) { System.out.println("E1 < E2"); }
+		if (E1.compareTo(E2) == 0) { System.out.println("E1 = E2"); }
 
 	}
 
